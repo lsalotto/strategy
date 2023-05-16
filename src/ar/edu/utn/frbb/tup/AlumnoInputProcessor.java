@@ -13,8 +13,11 @@ public class AlumnoInputProcessor {
 
         for (Map.Entry<String, String> entry:
                 fields.entrySet()) {
+            String tipoDeDatoALeer = entry.getValue();
 
-            Object consoleInput = BaseInputStrategy.getStrategy(entry.getValue()).acceptInput(scanner);
+            InputStrategy inputStrategy = BaseInputStrategy.getStrategy(tipoDeDatoALeer);
+
+            Object consoleInput = inputStrategy.acceptInput(scanner);
 
             AttributeInspector.invokeSetter(inputObject, entry.getKey(), consoleInput);
         }

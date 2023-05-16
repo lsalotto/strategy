@@ -26,7 +26,7 @@ public abstract class BaseInputStrategy implements InputStrategy {
         if ("String".equals(inputType)) {
             return TextInputStrategy.getInstance();
         } else if ("int".equals(inputType)){
-            NumberInputStrategy.getInstance();
+            return NumberInputStrategy.getInstance();
         }
         return TextInputStrategy.getInstance();
     }
